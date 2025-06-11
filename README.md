@@ -33,6 +33,19 @@ Pyroscope — это проект с открытым исходным кодо�
     Создайте новую директорию для проекта и инициализируйте в ней стандартное Java-приложение с помощью Gradle.
 
     ```bash
+    wget https://services.gradle.org/distributions/gradle-8.14.2-bin.zip
+    mkdir /opt/gradle
+    unzip -d /opt/gradle gradle-8.14.2-bin.zip
+    ```
+
+    Step 3. Configure your system environment
+    Linux & MacOS users
+    Configure your PATH environment variable to include the bin directory of the unzipped distribution, e.g.:
+    ```bash
+    export PATH=$PATH:/opt/gradle/gradle-8.14.2/bin
+    ```
+
+    ```bash
     mkdir gradle-profiling-example
     cd gradle-profiling-example
     gradle init --type java-application --dsl kotlin --test-framework junit-jupiter --project-name simple-app --package com.example
