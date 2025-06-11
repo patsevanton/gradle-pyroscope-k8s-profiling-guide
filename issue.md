@@ -28,9 +28,11 @@ unzip -d /opt/gradle gradle-8.14.2-bin.zip
 export PATH=$PATH:/opt/gradle/gradle-8.14.2/bin
 ```
 Создание тестового проекта:
+```
 mkdir gradle-profiling-example
 cd gradle-profiling-example
 gradle init --type java-application --dsl kotlin --test-framework junit-jupiter --project-name simple-app --package com.example
+```
 Загрузка Java-агента Pyroscope:
 Агент загружается в специфичную для версии Gradle директорию кэша демона.
 ```
