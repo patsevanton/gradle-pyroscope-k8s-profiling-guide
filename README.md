@@ -56,8 +56,7 @@ Pyroscope — это проект с открытым исходным кодо�
     Агент Pyroscope поставляется в виде JAR-файла. Нам нужно скачать его и положить в наш проект, чтобы он был доступен во время сборки. Создадим директорию `profiler` и скачаем туда агент.
 
     ```bash
-    mkdir profiler
-    wget -O profiler/pyroscope.jar https://github.com/pyroscope-io/pyroscope-java/releases/latest/download/pyroscope.jar
+    wget -O /home/user/.gradle/daemon/8.14.2/pyroscope.jar https://github.com/pyroscope-io/pyroscope-java/releases/latest/download/pyroscope.jar
     ```
 
 Теперь наш проект готов к настройке для отправки данных профилирования.
