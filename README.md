@@ -138,7 +138,7 @@ org.gradle.jvmargs=-javaagent:pyroscope.jar -Dpyroscope.application.name=my-appl
 Давайте разберем, что здесь происходит:
 
 *   `org.gradle.jvmargs`: Это стандартное свойство Gradle для указания дополнительных опций JVM для демона.
-*   `-javaagent:profiler/pyroscope.jar`: Главный параметр, который указывает JVM загрузить JAR-файл Pyroscope как Java-агента. Путь `profiler/pyroscope.jar` относителен корня проекта.
+*   `-javaagent:pyroscope.jar`: Главный параметр, который указывает JVM загрузить JAR-файл Pyroscope как Java-агента. Путь `profiler/pyroscope.jar` относителен корня проекта.
 *   `-Dpyroscope.application.name=gradle-build-profiling`: Это имя, под которым данные о нашей сборке появятся в интерфейсе Pyroscope. Вы можете выбрать любое удобное имя.
 *   `-Dpyroscope.server.address=http://localhost:4040`: **Ключевой параметр.** Поскольку наше Gradle-приложение будет собираться локально, а не внутри кластера, адрес сервера Pyroscope должен быть доступен с нашей локальной машины. В обоих случаях (Docker Compose или Kubernetes с port-forward) это будет `http://localhost:4040`.
 
