@@ -1,16 +1,12 @@
-[Баг] Инструкция по профилированию Gradle Daemon с помощью Java-агента не приводит к появлению данных в Pyroscope
+Профилированию Gradle не создает pyroscope.application.name в Pyroscope
 
 Описание проблемы
-При выполнении шагов из официальной инструкции по интеграции Pyroscope с Gradle для профилирования процесса Gradle Daemon, данные о профилировании не появляются в веб-интерфейсе Pyroscope. Сборка проекта проходит успешно, но агент, судя по всему, не подключается к демону или не может отправить данные на сервер.
 
 Ожидаемое поведение:
-После выполнения команды gradle clean build --daemon в веб-интерфейсе Pyroscope по адресу http://localhost:4040 должно появиться приложение с именем, указанным в gradle.properties (например, my-application или gradle-build-profiling), содержащее данные о профилировании (CPU, alloc и т.д.).
 
 Текущее (фактическое) поведение:
-Веб-интерфейс Pyroscope остается пустым, новое приложение не появляется. При этом в консоли нет явных ошибок, связанных с Pyroscope, и сборка Gradle успешно завершается.
 
 Шаги для воспроизведения
-Проблема воспроизводится при точном следовании инструкции.
 
 Установка и настройка окружения Gradle:
 
@@ -36,7 +32,7 @@ gradle init --type java-application --dsl kotlin --test-framework junit-jupiter 
 Загрузка Java-агента Pyroscope:
 Агент загружается в специфичную для версии Gradle директорию кэша демона.
 ```
-wget -O /home/user/.gradle/daemon/8.14.2/pyroscope.jar https://github.com/pyroscope-io/pyroscope-java/releases/latest/download/pyroscope.jar
+wget -O /home/user/.gradle/daemon/8.14.2/pyroscope.jar https://github.com/grafana/pyroscope-java/releases/download/v2.1.2/pyroscope.jar
 ```
 Запуск сервера Pyroscope:
 Создается файл docker-compose.yml в корне проекта:
@@ -44,7 +40,7 @@ wget -O /home/user/.gradle/daemon/8.14.2/pyroscope.jar https://github.com/pyrosc
 version: '3.8'
 services:
   pyroscope:
-    image: grafana/pyroscope:latest
+    image: grafana/pyroscope:main-8c89229
     ports:
       - "4040:4040"
     command:
@@ -63,5 +59,5 @@ org.gradle.jvmargs=-javaagent:pyroscope.jar -Dpyroscope.application.name=my-appl
 ```
 Запуск профилируемой сборки:
 ```
-gradle clean build --daemon
+gradle clean build --no-daemon
 ```
