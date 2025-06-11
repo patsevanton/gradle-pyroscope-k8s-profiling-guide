@@ -36,3 +36,15 @@ override.tf.json
 .terraformrc
 terraform.rc
 .idea
+/gradle-profiling-example/.gitattributes
+/gradle-profiling-example/.gitignore
+/gradle-profiling-example/app/src/main/java/com/example/App.java
+/gradle-profiling-example/app/src/test/java/com/example/AppTest.java
+/gradle-profiling-example/app/build.gradle.kts
+/gradle-profiling-example/gradle.properties
+/gradle-profiling-example/gradle/wrapper/gradle-wrapper.jar
+/gradle-profiling-example/gradle/wrapper/gradle-wrapper.properties
+/gradle-profiling-example/gradlew
+/gradle-profiling-example/gradlew.bat
+/gradle-profiling-example/gradle/libs.versions.toml
+/gradle-profiling-example/settings.gradle.kts
