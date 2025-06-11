@@ -132,7 +132,7 @@ Pyroscope — это проект с открытым исходным кодо�
 
 ```properties
 # JVM аргументы для Gradle Daemon
-org.gradle.jvmargs=-javaagent:pyroscope.jar -Dpyroscope.application.name=gradle-build-profiling -Dpyroscope.server.address=http://localhost:4040 -Dpyroscope.profile=cpu,alloc,lock,network,wall
+org.gradle.jvmargs=-javaagent:pyroscope.jar -Dpyroscope.application.name=my-application{env=prod,version=1.0} -Dpyroscope.server.address=http://localhost:4040 -Dpyroscope.profile=cpu,alloc,lock,network,wall
 ```
 
 Давайте разберем, что здесь происходит:
