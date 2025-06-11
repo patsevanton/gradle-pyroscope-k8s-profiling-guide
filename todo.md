@@ -71,16 +71,16 @@ Pyroscope — это проект с открытым исходным кодо�
 
 1.  В корне вашего Gradle-проекта создайте файл `docker-compose.yml`:
 
-    ```yaml
-    version: '3.8'
-    services:
-      pyroscope:
-        image: grafana/pyroscope:latest
-        ports:
-          - "4040:4040"
-        command:
-          - "server"
-    ```
+```yaml
+version: '3.8'
+services:
+  pyroscope:
+    image: grafana/pyroscope:latest
+    ports:
+      - "4040:4040"
+    command:
+      - "server"
+```
 
 2.  Запустите контейнер в фоновом режиме:
 
